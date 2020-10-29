@@ -1,4 +1,4 @@
-import { Grid, GridList, GridListTile, TextField } from '@material-ui/core';
+import { Grid, ImageList, ImageListItem, TextField } from '@material-ui/core';
 
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -165,7 +165,7 @@ class TableFilter extends React.Component {
       column.filterOptions && column.filterOptions.renderValue ? column.filterOptions.renderValue : v => v;
 
     return (
-      <GridListTile key={index} cols={2}>
+      <ImageListItem key={index} cols={2}>
         <FormGroup>
           <Grid item xs={12}>
             <Typography variant="body2" className={classes.checkboxListTitle}>
@@ -201,7 +201,7 @@ class TableFilter extends React.Component {
             ))}
           </Grid>
         </FormGroup>
-      </GridListTile>
+      </ImageListItem>
     );
   }
 
@@ -216,7 +216,7 @@ class TableFilter extends React.Component {
     const cols = (column.filterOptions && column.filterOptions.fullWidth) === true ? 2 : 1;
 
     return (
-      <GridListTile key={index} cols={cols} classes={{ tile: classes.gridListTile }}>
+      <ImageListItem key={index} cols={cols} classes={{ root: classes.gridListTile }}>
         <FormControl key={index} fullWidth>
           <InputLabel htmlFor={column.name}>{column.label}</InputLabel>
           <Select
@@ -235,7 +235,7 @@ class TableFilter extends React.Component {
             ))}
           </Select>
         </FormControl>
-      </GridListTile>
+      </ImageListItem>
     );
   }
 
@@ -248,7 +248,8 @@ class TableFilter extends React.Component {
     const cols = (column.filterOptions && column.filterOptions.fullWidth) === true ? 2 : 1;
 
     return (
-      <GridListTile key={index} cols={cols} classes={{ tile: classes.gridListTile }}>
+      
+      <ImageListItem key={index} cols={cols} classes={{ root: classes.gridListTile }}>
         <FormControl key={index} fullWidth>
           <TextField
             fullWidth
@@ -257,8 +258,8 @@ class TableFilter extends React.Component {
             data-testid={'filtertextfield-' + column.name}
             onChange={event => this.handleTextFieldChange(event, index, column.name)}
           />
-        </FormControl>
-      </GridListTile>
+        </FormControl> 
+      </ImageListItem>
     );
   }
 
@@ -271,7 +272,7 @@ class TableFilter extends React.Component {
       column.filterOptions && column.filterOptions.renderValue ? column.filterOptions.renderValue : v => v;
     const cols = (column.filterOptions && column.filterOptions.fullWidth) === true ? 2 : 1;
     return (
-      <GridListTile key={index} cols={cols} classes={{ tile: classes.gridListTile }}>
+      <ImageListItem key={index} cols={cols} classes={{ root: classes.gridListTile }}>
         <FormControl key={index} fullWidth>
           <InputLabel htmlFor={column.name}>{column.label}</InputLabel>
           <Select
@@ -300,7 +301,7 @@ class TableFilter extends React.Component {
             ))}
           </Select>
         </FormControl>
-      </GridListTile>
+      </ImageListItem>
     );
   }
 
@@ -321,11 +322,11 @@ class TableFilter extends React.Component {
     }
 
     return (
-      <GridListTile key={index} cols={cols} classes={{ tile: classes.gridListTile }}>
+      <ImageListItem key={index} cols={cols} classes={{ root: classes.gridListTile }}>
         <FormControl key={index} fullWidth>
           {display(filterList, this.handleCustomChange, index, column, filterData)}
         </FormControl>
-      </GridListTile>
+      </ImageListItem>
     );
   }
 
@@ -380,7 +381,7 @@ class TableFilter extends React.Component {
           </div>
           <div className={classes.filtersSelected} />
         </div>
-        <GridList cellHeight="auto" cols={filterGridColumns} spacing={34}>
+        <ImageList cellHeight="auto" cols={filterGridColumns} spacing={34}>
           {columns.map((column, index) => {
             if (column.filter) {
               const filterType = column.filterType || options.filterType;
@@ -395,7 +396,7 @@ class TableFilter extends React.Component {
                 : this.renderSelect(column, index);
             }
           })}
-        </GridList>
+        </ImageList>
         {customFooter ? customFooter(filterList, this.applyFilters) : ''}
       </div>
     );
