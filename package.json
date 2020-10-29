@@ -18,7 +18,8 @@
     "coverage:html": "cross-env NODE_ENV=test nyc check-coverage --lines 55 --reporter=html --reporter=text mocha --require @babel/register test/*.js && nyc report --reporter=html",
     "prettier": "find src/ docs/ test/ -type f -name \"*.js\" ! -path \"*/.next/*\" | xargs prettier --write",
     "lint": "eslint src",
-    "build": "cross-env NODE_ENV=production npm run prettier && rollup -c",
+    "rollup": "rollup -c",
+    "build": "cross-env NODE_ENV=production npm run rollup",
     "prepare": "npm run build"
   },
   "repository": {
@@ -91,7 +92,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "peerDependencies": {
-    "@material-ui/core": "^4.0.0",
+    "@material-ui/core": "^5.0.0-alpha.14",
     "@material-ui/icons": "^4.0.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
