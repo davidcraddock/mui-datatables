@@ -304,7 +304,7 @@ class TableToolbar extends React.Component {
     };
 
     const closeFilterPopover = () => {
-      this.setState({ hideFilterPopover: true });
+      this.setState({ hideFilterPopover: true });      
     };
 
     return (
