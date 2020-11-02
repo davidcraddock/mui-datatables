@@ -13,6 +13,10 @@ const Popover = ({ className, trigger, refExit, hide, content, ...providedProps 
       const shouldHide = typeof hide === 'boolean' ? hide : false;
       if (shouldHide) {
         open(false);
+
+        if (refExit) {
+          refExit();
+        }
       }
     }
   }, [hide, isOpen, open]);
@@ -39,11 +43,6 @@ const Popover = ({ className, trigger, refExit, hide, content, ...providedProps 
     horizontal: 'center',
   };
 
-  const handleOnExit = () => {
-    if (refExit) {
-      refExit();
-    }
-  };
 
   const triggerProps = {
     key: 'content',
@@ -60,7 +59,6 @@ const Popover = ({ className, trigger, refExit, hide, content, ...providedProps 
         elevation={2}
         open={isOpen}
         onClose={handleRequestClose}
-        onExited={handleOnExit}
         anchorEl={anchorEl.current}
         anchorOrigin={anchorOriginSpecs}
         transformOrigin={transformOriginSpecs}
