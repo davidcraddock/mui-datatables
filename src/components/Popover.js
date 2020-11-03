@@ -19,7 +19,7 @@ const Popover = ({ className, trigger, refExit, hide, content, ...providedProps 
         }
       }
     }
-  }, [hide, isOpen, open]);
+  }, [hide, refExit, isOpen, open]);
 
   const handleClick = event => {
     anchorEl.current = event.currentTarget;
